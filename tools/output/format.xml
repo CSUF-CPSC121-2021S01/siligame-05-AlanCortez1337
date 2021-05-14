@@ -1,0 +1,56 @@
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+</replacements>
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+</replacements>
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+<replacement offset='1200' length='2'> </replacement>
+</replacements>
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+<replacement offset='109' length='0'> </replacement>
+<replacement offset='110' length='1'></replacement>
+<replacement offset='383' length='0'> </replacement>
+<replacement offset='384' length='1'></replacement>
+</replacements>
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+<replacement offset='882' length='2'> </replacement>
+<replacement offset='2121' length='2'> </replacement>
+<replacement offset='2285' length='2'> </replacement>
+<replacement offset='2455' length='2'> </replacement>
+<replacement offset='2665' length='2'> </replacement>
+<replacement offset='2845' length='2'> </replacement>
+<replacement offset='3023' length='2'> </replacement>
+<replacement offset='3285' length='2'> </replacement>
+<replacement offset='4360' length='2'> </replacement>
+<replacement offset='4477' length='2'> </replacement>
+</replacements>
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+<replacement offset='155' length='2'>&#10;</replacement>
+<replacement offset='512' length='2'>&#10;</replacement>
+</replacements>
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+<replacement offset='158' length='2'>&#10;</replacement>
+<replacement offset='185' length='3'>&#10;&#10;</replacement>
+<replacement offset='502' length='2'>&#10;</replacement>
+</replacements>
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+<replacement offset='102' length='2'>&#10;</replacement>
+<replacement offset='199' length='3'>&#10;&#10;</replacement>
+</replacements>
+<?xml version='1.0'?>
+<replacements xml:space='preserve' incomplete_format='false'>
+<replacement offset='250' length='2'>&#10;</replacement>
+<replacement offset='524' length='3'>&#10;&#10;</replacement>
+<replacement offset='1109' length='2'> </replacement>
+<replacement offset='1189' length='2'> </replacement>
+<replacement offset='1230' length='13'>            </replacement>
+<replacement offset='1377' length='2'> </replacement>
+<replacement offset='1552' length='2'> </replacement>
+</replacements>

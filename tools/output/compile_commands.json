@@ -1,0 +1,27 @@
+[
+ {
+ "directory" : "/home/student/Documents/labs/siligame-05-AlanCortez1337",
+ "command" : "clang++ -std=c++17 main.cc -o main",
+ "file" : "/home/student/Documents/labs/siligame-05-AlanCortez1337/main.cc"
+ },
+ {
+ "directory" : "/home/student/Documents/labs/siligame-05-AlanCortez1337",
+ "command" : "clang++ -std=c++17 player.cc -o main",
+ "file" : "/home/student/Documents/labs/siligame-05-AlanCortez1337/player.cc"
+ },
+ {
+ "directory" : "/home/student/Documents/labs/siligame-05-AlanCortez1337",
+ "command" : "clang++ -std=c++17 opponent.cc -o main",
+ "file" : "/home/student/Documents/labs/siligame-05-AlanCortez1337/opponent.cc"
+ },
+ {
+ "directory" : "/home/student/Documents/labs/siligame-05-AlanCortez1337",
+ "command" : "clang++ -std=c++17 game_element.cc -o main",
+ "file" : "/home/student/Documents/labs/siligame-05-AlanCortez1337/game_element.cc"
+ },
+ {
+ "directory" : "/home/student/Documents/labs/siligame-05-AlanCortez1337",
+ "command" : "clang++ -std=c++17 game.cc -o main",
+ "file" : "/home/student/Documents/labs/siligame-05-AlanCortez1337/game.cc"
+ },
+]

@@ -1,4 +1,5 @@
 #include "opponent.h"
+
 #include "cpputils/graphics/image.h"
 // opponent
 void Opponent::Draw(graphics::Image &oppSPRT) {
@@ -36,28 +37,24 @@ void OpponentProjectile::Draw(graphics::Image &oppProjSPRT) {
       oppProjSPRT.SetColor(i + x, z + y, imageO.GetColor(i, z));
     }
   }
-  //oppProjSPRT.SaveImageBmp("o_projectile.bmp");
 }
 
 void OpponentProjectile::Move(const graphics::Image &img) {
   SetY(GetY() + 3);
   // checks if out of bounds
-
   if (IsOutOfBounds(img)) {
     SetIsActive(false);
   }
 }
 
-std::unique_ptr<class OpponentProjectile>
-Opponent::LaunchProjectile() {
+std::unique_ptr<class OpponentProjectile> Opponent::LaunchProjectile() {
   std::unique_ptr<OpponentProjectile> ptr_heatBlst;
-  if (timer == 100) { // oppj timer runs out then return the thing
-    timer++;
-    return nullptr;
-  } else {
+  timer++;
+  if (timer == 100) {  // oppj timer runs out then return the thing
     ptr_heatBlst = std::make_unique<OpponentProjectile>(GetX(), GetY());
-
+    timer = 0;
+    return std::move(ptr_heatBlst);
+  } else {
+    return nullptr;
   }
-  return std::move(ptr_heatBlst);
-
 }

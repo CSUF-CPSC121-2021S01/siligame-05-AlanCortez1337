@@ -1,4 +1,5 @@
 #include "player.h"
+
 #include "cpputils/graphics/image.h"
 
 void Player::Draw(graphics::Image &playerSPRT) {
@@ -15,14 +16,10 @@ void Player::Draw(graphics::Image &playerSPRT) {
       playerSPRT.SetColor(i + x, z + y, imageO.GetColor(i, z));
     }
   }
-  //playerSPRT.SaveImageBmp("player.bmp");
 }
 
 void PlayerProjectile::Draw(graphics::Image &pProjSPRT) {
-  // initialize the size
-  // outline for player sprite
   int x, y;
-
   x = GetX();
   y = GetY();
   graphics::Image imageO;
@@ -32,7 +29,6 @@ void PlayerProjectile::Draw(graphics::Image &pProjSPRT) {
       pProjSPRT.SetColor(i + x, z + y, imageO.GetColor(i, z));
     }
   }
-  //pProjSPRT.SaveImageBmp("p_projectile.bmp");
 }
 
 void Player::Move(const graphics::Image &img) {}

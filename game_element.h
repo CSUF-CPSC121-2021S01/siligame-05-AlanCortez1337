@@ -26,7 +26,7 @@ class GameElement {
   // Memeber Fuctions
   virtual void Draw(graphics::Image &gameEl) = 0;
   virtual void Move(const graphics::Image &img) = 0;
-  bool IntersectsWith(GameElement* newEl);
+  bool IntersectsWith(GameElement *newEl);
   bool IsOutOfBounds(const graphics::Image &imgObj);
 };
 #endif
