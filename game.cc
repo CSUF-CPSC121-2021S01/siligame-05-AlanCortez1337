@@ -13,10 +13,7 @@ void Game::CreateOpponents() {
   opponent_.push_back(std::move(opp1));
   std::unique_ptr<Opponent> opp2 = std::make_unique<Opponent>(scndOpp);
   opponent_.push_back(std::move(opp2));
-  if(opp1->LaunchProjectile(opp1.get()) != nullptr){
 
-    oppProj_.push_back(std::move(opp1->LaunchProjectile(opp1.get())));
-  }
 }
 /*
 void Game::CreateOpponentProjectiles() {
@@ -116,29 +113,37 @@ void Game::RemoveInactive() {
   //if (!player_.GetIsActive()) {
   //  player_.erase();
   //}
-  for (int index = 0; index < opponent_.size(); index++) { // opponent
+  for (int index = opponent_.size(); index >= 0; index--) { // opponent
     if (!opponent_[index]->GetIsActive()) {
       opponent_.erase(opponent_.begin() + index);// possibly need to change index to osmething else
     }
   }
-  for (int index = 0; index < oppProj_.size(); index++) { // opponent projectile
+  for (int index = oppProj_.size(); index >= 0; index--) { // opponent projectile
     if (!opponent_[index]->GetIsActive()) {
       oppProj_.erase(oppProj_.begin() + index);
     }
   }
-  for (int index = 0; index < plyrProj_.size(); index++) { // player projectile
+  for (int index = plyrProj_.size(); index >= 0; index--) { // player projectile
     if (!plyrProj_[index]->GetIsActive()) {
       plyrProj_.erase(plyrProj_.begin() + index);
     }
   }
 }
-
+void Game::LaunchProjectiles(){
+  std::unique_ptr<OpponentProjectile> projectile;
+  for (int index = 0; index < opponent_.size(); index++) { // opponent
+    projectile = opponent_[index]->LaunchProjectile();
+    if (projectile != nullptr) {
+    oppProj_.push_back(std::move(projectile));
+    }
+  }
+}
 void Game::OnAnimationStep() {
   if(opponent_.size() == 0){
     CreateOpponents();
   }
   MoveGameElements();
-  //create LaunchProjectiles function
+  LaunchProjectiles();
   FilterIntersections();
   RemoveInactive();
   UpdateScreen();
@@ -146,8 +151,7 @@ void Game::OnAnimationStep() {
 }
 
 void Game::OnMouseEvent(const graphics::MouseEvent &event) {
-  if (event.GetMouseAction() == graphics::MouseAction::kMoved ||
-  event.GetMouseAction() == graphics::MouseAction::kDragged) {
+  if (event.GetMouseAction() == graphics::MouseAction::kMoved || event.GetMouseAction() == graphics::MouseAction::kDragged) {
     int new_x = event.GetX() - player_.GetWidth() / 2;
     int new_y = event.GetY() - player_.GetHeight() / 2;
     int old_x = player_.GetX();
@@ -159,20 +163,9 @@ void Game::OnMouseEvent(const graphics::MouseEvent &event) {
       player_.SetY(old_y);
     }
   }
-  if (event.GetMouseAction() == graphics::MouseAction::kPressed){
-    PlayerProjectile newPPJ(player_.GetX(), player_.GetY()+10);// might need to adjust y
+  if ((event.GetMouseAction() == graphics::MouseAction::kPressed || event.GetMouseAction() == graphics::MouseAction::kDragged) && player_.GetIsActive()){ // AND IS ACTIVE
+    PlayerProjectile newPPJ(player_.GetX()+10, player_.GetY()+10);// might need to adjust y
     std::unique_ptr<PlayerProjectile> ptr_newPPJ = std::make_unique<PlayerProjectile>(newPPJ);
     plyrProj_.push_back(std::move(ptr_newPPJ));
   }
-
-
-
-  /*
-  f (event.GetX() < gScreen_.GetWidth() &&
-      event.GetY() < gScreen_.GetHeight() && event.GetX() > 0 &&
-      event.GetY() > 0) {
-    player_.SetX(event.GetX() - player_.GetWidth() / 2);
-    player_.SetY(event.GetY() - player_.GetHeight() / 2);
-  }
-  */
 }

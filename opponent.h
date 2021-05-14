@@ -13,7 +13,7 @@ public:
   Opponent(int x, int y) : GameElement(x, y, 50, 50) {}
   void Draw(graphics::Image &oppSPRT) override;
   void Move(const graphics::Image &moveObj) override;
-  std::unique_ptr<class OpponentProjectile> LaunchProjectile(GameElement* opp);
+  std::unique_ptr<class OpponentProjectile> LaunchProjectile();
 };
 
 class OpponentProjectile : public GameElement {

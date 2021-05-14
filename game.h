@@ -34,6 +34,7 @@ class Game : graphics::AnimationEventListener, graphics::MouseEventListener {
   //void CreatePlayerProjectiles();    // creates the player projectiles
   void Init();  // initializes the opponents, opponent projectiles, player
                 // projectiles
+  void LaunchProjectiles();
   void MoveGameElements();
   void FilterIntersections();
   void UpdateScreen();  // updates the game screen
