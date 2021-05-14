@@ -5,6 +5,7 @@
 #include "cpputils/graphics/image.h"
 
 const std::string score = "Doge Coins: ";
+const std::string end = "GAME OVER\n";
 const graphics::Color white(255, 255, 255);
 const graphics::Color black(0, 0, 0);
 
@@ -61,9 +62,12 @@ void Game::FilterIntersections() {  // MIGHT NEED TO CHANGE SOME VARIABLES
 
 void Game::UpdateScreen() {
   gScreen_.DrawRectangle(0, 0, 800, 600, white);
-  gScreen_.DrawText(0, 0, score + std::to_string(GetScore()), 12, black);
   if (player_.GetIsActive()) {
+    gScreen_.DrawText(0, 0, score + std::to_string(GetScore()), 12, black);
     player_.Draw(gScreen_);
+  } else {  // end screen
+    gScreen_.DrawText(260, 220, end, 60, black);
+    gScreen_.DrawText(315, 270, score + std::to_string(GetScore()), 30, black);
   }
   for (int index = 0; index < opponent_.size(); index++) {  // opponent
     if (opponent_[index]->GetIsActive()) {
@@ -71,7 +75,7 @@ void Game::UpdateScreen() {
     }
   }
   for (int index = 0; index < oppProj_.size(); index++) {  // opp projectile
-    if (opponent_[index]->GetIsActive()) {
+    if (oppProj_[index]->GetIsActive()) {
       oppProj_[index]->Draw(gScreen_);
     }
   }
